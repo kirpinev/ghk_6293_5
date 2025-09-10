@@ -33,11 +33,24 @@ const subscriptionText = style({
 
 const bottomBtn = style({
   position: "fixed",
-  zIndex: 2,
-  width: "100%",
-  padding: "12px",
+  zIndex: 1000,
+  width: "calc(100% - 32px)",
+  left: 0,
+  right: 0,
+  padding: "16px",
+  marginLeft: "16px",
+  marginRight: "16px",
+  marginBottom: "12px",
   bottom: 0,
   backgroundColor: "white",
+  borderBottomLeftRadius: "24px",
+  borderBottomRightRadius: "24px",
+  "@supports": {
+    "(bottom: env(safe-area-inset-bottom))": {
+      bottom: "env(safe-area-inset-bottom)",
+      paddingBottom: "max(12px, env(safe-area-inset-bottom))",
+    },
+  },
 });
 
 const productsTitle = style({

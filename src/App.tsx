@@ -112,7 +112,7 @@ export const App = () => {
             >
               <SwiperSlide
                 style={{
-                  height: "calc(100vh - 32px)",
+                  height: "calc(100dvh - 32px)",
                 }}
               >
                 <div className={appSt.cardContainer}>
@@ -291,30 +291,24 @@ export const App = () => {
                       />
                     </div>
                     <Gap size={96} />
-                    <div
-                      className={appSt.bottomBtn}
-                      style={{
-                        paddingLeft: 0,
-                        paddingRight: 0,
-                        width: "calc(100% - 32px)",
-                      }}
-                    >
-                      <ButtonMobile
-                        loading={loading}
-                        block
-                        view="primary"
-                        onClick={() =>
-                          handleClickOne({ img: big2, price: 399 })
-                        }
-                      >
-                        Мне подходит
-                      </ButtonMobile>
-                    </div>
                   </div>
                 </div>
               </SwiperSlide>
             </Swiper>
           </div>
+        </div>
+      )}
+
+      {step === 0 && (
+        <div className={appSt.bottomBtn}>
+          <ButtonMobile
+            block
+            view="primary"
+            loading={loading}
+            onClick={() => handleClickOne({ img: big2, price: 399 })}
+          >
+            Мне подходит
+          </ButtonMobile>
         </div>
       )}
 
@@ -326,7 +320,7 @@ export const App = () => {
             justifyContent: "space-between",
             backgroundColor: "white",
             padding: "0 16px",
-            height: "calc(100vh - 140px)",
+            height: "calc(100dvh - 140px)",
           }}
         >
           <Gap size={32} />
