@@ -70,22 +70,20 @@ export const App = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [img, setImg] = useState("");
   const [price, setPrice] = useState(0);
-  const [loading, setLoading] = useState(false);
 
   const handleClickOne = ({ img, price }: { img: string; price: number }) => {
+    window.gtag("event", "6293_get_sub", {
+      variant_name: "ghk_6293_5",
+    });
+
     setImg(img);
     setPrice(price);
     handleClickSubmit();
   };
 
   const handleClickSubmit = () => {
-    setLoading(true);
-
-    Promise.resolve().then(() => {
-      setLoading(false);
-      LS.setItem(LSKeys.ShowThx, true);
-      setThx(true);
-    });
+    LS.setItem(LSKeys.ShowThx, true);
+    setThx(true);
   };
 
   if (thxShow) {
@@ -304,7 +302,6 @@ export const App = () => {
           <ButtonMobile
             block
             view="primary"
-            loading={loading}
             onClick={() => handleClickOne({ img: big2, price: 399 })}
           >
             Мне подходит
@@ -358,7 +355,6 @@ export const App = () => {
           <ButtonMobile
             block
             view="primary"
-            loading={loading}
             onClick={() => handleClickSubmit()}
           >
             Перейти

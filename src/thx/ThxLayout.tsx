@@ -7,6 +7,12 @@ import { Gap } from "@alfalab/core-components/gap";
 import { useEffect } from "react";
 
 export const ThxLayout = () => {
+  const submit = () => {
+    window.gtag("event", "6293_get_real_sub", {
+      variant_name: "ghk_6293_5",
+    });
+  };
+
   useEffect(() => {
     document.body.style.backgroundColor = "white !important";
   }, []);
@@ -34,8 +40,13 @@ export const ThxLayout = () => {
           существует. Мы скоро предложим лучшие условия!
         </Typography.Text>
       </div>
-      <div className={appSt.bottomBtn}>
-        <ButtonMobile block view="primary" href="">
+      <div className={appSt.bottomBtn} style={{ margin: "0", width: "100%" }}>
+        <ButtonMobile
+          block
+          view="primary"
+          href="alfabank://multistep-route?fromModule=FORM&stepNumber=0&alias=alfa-subscription-alias&version=2"
+          onClick={submit}
+        >
           Спасибо, понятно!
         </ButtonMobile>
       </div>
